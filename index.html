@@ -61,6 +61,21 @@
     // ❗ Notes:
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the characters of the string.
     function stripVowels(str) {
+      // initialize the result keeper
+      let result  = '';
+
+      // loop through each character in the input string
+      for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+
+        // check if the character is a lowercase vowel
+        if (char !== 'a' && char !== 'e' && char !== 'i' && char !== 'o' && char !== 'u')
+        // if it's not a vael, add it to the result
+            result += char;
+      }
+
+      // return the result string
+      return result;
 
     }
 
