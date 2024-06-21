@@ -84,7 +84,33 @@
     // 🧠 Examples of usage:
     // sumNumsWhile([1, 2, 3]) // should return 6
     // sumNumsWhile([1, 2, 13]) // should return "I'm too superstitious!"
-    function sumNumsWhile() {
+    function sumNumsWhile(arr) {
+      // initialize the sum accumulator
+      let sum = 0;
+
+      // initialize the index for the while loop
+      let i = 0;
+
+      // loop through the array using a while loop
+      while (i < arr.length) {
+        let element = arr[i];
+
+        // check if the element is the number 13
+        if (element === 13) {
+          return "I'm too superstitious!";
+        }
+
+        // check if the element is a number
+        if (typeof element === 'number') {
+          sum += element;
+        }
+
+        // increment the index
+        i++;
+      }
+
+      // return the accumulated sum
+      return sum;
 
     }
 
