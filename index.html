@@ -185,7 +185,26 @@
     // 🧠 Ages in the subarrays should appear in the same order they appeared in the original array.
     // 🧠 Examples of usage:
     // separateAges([31, 12, 25, 65, 84, 20]) // should return [[12, 20], [31, 25, 65, 84]]
-    function separateAges() {
+    function separateAges(ages) {
+      // initialize two empty arrays to hold the separated ages
+      let under21 = [];
+      let overOrEqual21 = [];
+
+      // loop through the input array
+      for (let i = 0; i < ages.length; i++) {
+        let age = ages[i];
+
+        // check if the age is under 21
+        if (age < 21) {
+          // add to the under21array
+          under21.push(age);
+      } else {
+          // add to the overOrEqual21 array
+          overOrEqual21.push(age);
+       }
+      }
+
+      return [under21, overOrEqual21];
 
     }
 
@@ -196,7 +215,13 @@
     // 🧠 The "tail" prop contains an array holding the elements of the array after the first one.
     // 🧠 Examples of usage:
     // headAndTail([1, 2, 3]) // should return { head: 1, tail: [2, 3] }
-    function headAndTail() {
+    function headAndTail(arr) {
+      // if the array is empty, head should be undefined and tail should be an empty array
+      let head = arr.length > 0 ? arr[0] : undefined;
+      let tail = arr.length > 1 ? arr.slice(1) : [];
+
+      // return the object with head and tail properties
+      return { head: head, tail: tail };
 
     }
 
@@ -207,7 +232,36 @@
     // nestedLoops(['hello', 'goodbye']) // should return ['hEllO', 'gOOdbyE']
     // ❗ Notes:
     // 🧠 To capitalize a string you can use its toUpperCase method: "a".toUpperCase() returns "A"
-    function nestedLoops() {
+    function nestedLoops(arr) {
+      // array to hold the transformed strings
+      let transformedArray = [];
+
+      // list of vowels for each checking
+      const vowels = 'aeiou';
+
+      // loop through each string in the input array
+      for (let i = 0; i < arr.length; i++) {
+        let str = arr[i];
+        let transformedStr = '';
+
+        // loop through each character in the string
+        for (let j = 0; j < str.length; j++) {
+          let char = str[j];
+
+          // check if the character is a vowel
+          if (vowels.includes(char)) {
+            // capitalize the vowel
+            transformedStr += char.toUpperCase();
+          } else {
+            // keep the character as it is
+            transformedStr += char;
+          }
+        }
+
+        transformedArray.push(transformedStr);
+      }
+
+      return transformedArray;
 
     }
 
@@ -222,6 +276,15 @@
     // 🧠 Practice using pop and slice.
     // 🧠 Note that pop modifies the original array in place and returns the "popped" element, whereas slice gives us a brand new array.
     function crazyTrimmer(arr) {
+      // check if the array has an even number of elements
+      if (arr.length % 2 === 0) {
+        // use pop to remove the last element and modify the original array
+        arr.pop();
+        return arr;
+      } else {
+        // use slice to return a new array excluding the first and last elements
+        return arr.slice(1, -1);
+      }
 
     }
 
